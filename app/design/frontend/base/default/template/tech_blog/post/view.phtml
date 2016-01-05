@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Post view template
+ *
+ * @category    Tech
+ * @package     Tech_Blog
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php $_post = $this->getCurrentPost();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title post-title">
+    <h1><?php echo $_post->getTitle(); ?></h1>
+</div>
+<div class="post-view">
+    <div class="post-title">
+        <?php echo Mage::helper('tech_blog')->__('Title');?>:<?php echo $_post->getTitle();?>
+
+    </div>
+    <div class="post-image">
+        <?php if ($_post->getImage()) :?>
+    <img src="<?php echo Mage::helper('tech_blog/post_image')->init($_post, 'image')->resize(75);?>" alt="<?php echo $this->escapeHtml($_post->getTitle());?>" />
+<?php endif;?>
+
+    </div>
+    <div class="post-short_desc">
+        <?php echo Mage::helper('tech_blog')->__('Short Description');?>:<?php echo $_post->getShortDesc();?>
+
+    </div>
+    <div class="post-desc">
+        <?php echo Mage::helper('tech_blog')->__('Description');?>:<?php echo $_post->getDesc();?>
+
+    </div>
+    <div class="post-more">
+        <?php echo Mage::helper('tech_blog')->__('More');?>:<?php echo $_post->getMore();?>
+
+    </div>
+    <div class="post-event_at">
+        <?php echo Mage::helper('tech_blog')->__("Event Date");?>: <?php echo Mage::helper('core')->formatDate($_post->getEventAt(), 'full');?>
+
+    </div>
+    <div class="post-in_cms">
+        <?php echo Mage::helper('tech_blog')->__("Display In Homesite");?>:<?php echo ($_post->getInCms() == 1) ? Mage::helper('tech_blog')->__('Yes') : Mage::helper('tech_blog')->__('No') ?>
+
+    </div>
+
+</div>

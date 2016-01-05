@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <tech_blog translate="title" module="tech_blog">
+                                        <title>Blog</title>
+                                    </tech_blog>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <tech_blog translate="title" module="tech_blog">
+                        <title>Blog</title>
+                        <children>
+                            <post translate="title" module="tech_blog">
+                                <title>Post</title>
+                                <sort_order>0</sort_order>
+                            </post>
+                        </children>
+                    </tech_blog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <tech_blog translate="title" module="tech_blog">
+            <title>Blog</title>
+            <sort_order>85</sort_order>
+            <children>
+                <post translate="title" module="tech_blog">
+                    <title>Post</title>
+                    <action>adminhtml/blog_post</action>
+                    <sort_order>0</sort_order>
+                </post>
+            </children>
+        </tech_blog>
+    </menu>
+</config>

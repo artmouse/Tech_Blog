@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<layout>
+    
+    <tech_blog_post_index translate="label" module="tech_blog">
+        <label>Posts list</label>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="tech_blog/post_list" name="post_list" template="tech_blog/post/list.phtml" />
+        </reference>
+    </tech_blog_post_index>
+    <tech_blog_post_view translate="label" module="tech_blog">
+        <label>Post view page</label>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="tech_blog/post_view" name="post_view" template="tech_blog/post/view.phtml" />
+            <block type="tech_blog/post_catalog_product_list" name="post.info.products" as="post_products" template="tech_blog/post/catalog/product/list.phtml" />
+            <block type="tech_blog/post_catalog_category_list" name="post.info.categories" as="post_categories" template="tech_blog/post/catalog/category/list.phtml" />
+        </reference>
+    </tech_blog_post_view>
+    <catalog_product_view>
+        <reference name="product.info">
+            <block type="tech_blog/catalog_product_list_post" name="product.info.posts" as="product_posts" template="tech_blog/catalog/product/list/post.phtml">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value" module="tech_blog"><value>Posts</value></action>
+            </block>
+        </reference>
+    </catalog_product_view>
+    <tech_blog_category>
+        <reference name="content">
+            <block type="tech_blog/catalog_category_list_post" name="category.info.posts" as="category_posts" template="tech_blog/catalog/category/list/post.phtml" after="-" />
+        </reference>
+    </tech_blog_category>
+    <catalog_category_default>
+        <update handle="tech_blog_category" />
+    </catalog_category_default>
+    <catalog_category_layered>
+        <update handle="tech_blog_category" />
+    </catalog_category_layered>
+</layout>
